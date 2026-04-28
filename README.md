@@ -1,21 +1,50 @@
-# React + TypeScript + Vite + shadcn/ui
+# Ike Leet Codes
 
-This is a template for a new Vite project with React, TypeScript, and shadcn/ui.
+Aplicação web para estudar e praticar problemas de algoritmo em um formato parecido com plataformas de coding interview.
 
-## Adding components
+## O que o projeto é
 
-To add components to your app, run the following command:
+Um catálogo interativo de problemas com navegação por lista e página de detalhes, incluindo descrição, abordagem e solução em TypeScript.
+
+## O que ele faz e para que serve
+
+- Organiza problemas por dificuldade.
+- Permite buscar e filtrar rapidamente os desafios.
+- Exibe explicação de raciocínio e implementação da solução.
+- Serve como base de estudo, revisão e evolução de resolução de problemas.
+
+## O que usamos
+
+- `React` para interface.
+- `TypeScript` para tipagem e segurança no desenvolvimento.
+- `Vite` para build e ambiente de desenvolvimento rápido.
+- `React Router` para rotas entre listagem e detalhes.
+- `Zustand` para estado global (filtros).
+- `shadcn/ui` para componentes de UI reutilizáveis.
+- `Vitest` para testes unitários.
+
+## Como usamos
+
+### Instalar dependências
 
 ```bash
-npx shadcn@latest add button
+pnpm install
 ```
 
-This will place the ui components in the `src/components` directory.
+### Rodar em desenvolvimento
 
-## Using components
+```bash
+pnpm dev
+```
 
-To use the components in your app, import them as follows:
+### Gerar build de produção
 
-```tsx
-import { Button } from "@/components/ui/button"
+```bash
+pnpm build
+```
+
+### Rodar testes
+
+```bash
+pnpm test
 ```

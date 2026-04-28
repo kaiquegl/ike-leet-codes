@@ -1,38 +1,35 @@
-import { Link, useParams } from "react-router"
-import { ChevronLeft, ExternalLink } from "lucide-react"
-import { problems } from "@/data/problems"
-import { CodeBlock } from "@/components/code/CodeBlock"
-import { DifficultyBadge } from "@/components/problems/DifficultyBadge"
-import { ProblemSection } from "@/problems/_shared/ProblemSection"
+import { ChevronLeft, ExternalLink } from "lucide-react";
+import { Link, useParams } from "react-router";
+import { CodeBlock } from "@/components/code/CodeBlock";
+import { DifficultyBadge } from "@/components/problems/DifficultyBadge";
+import { problems } from "@/data/problems";
+import { ProblemSection } from "@/problems/_shared/ProblemSection";
 
 export function ProblemDetailPage() {
-  const { id } = useParams<{ id: string }>()
-  const problem = problems.find((p) => p.id === id)
+  const { id } = useParams<{ id: string }>();
+  const problem = problems.find((p) => p.id === id);
 
   if (!problem) {
     return (
       <div className="flex flex-1 items-center justify-center">
         <div className="text-center">
           <div className="font-mono text-sm text-white/30">Problem not found</div>
-          <Link
-            className="mt-3 block font-mono text-xs text-[var(--codex-cyan)]/60 hover:text-[var(--codex-cyan)]"
-            to="/"
-          >
+          <Link className="mt-3 block font-mono text-(--codex-cyan)/60 text-xs hover:text-(--codex-cyan)" to="/">
             ← Back to list
           </Link>
         </div>
       </div>
-    )
+    );
   }
 
-  const Description = problem.Description
-  const Approach = problem.solution.Approach
+  const Description = problem.Description;
+  const Approach = problem.solution.Approach;
 
   return (
     <article className="flex flex-col">
-      <header className="sticky top-0 z-10 flex items-center justify-between border-b border-white/5 bg-[var(--codex-bg)]/80 px-8 py-4 backdrop-blur-sm">
+      <header className="sticky top-0 z-10 flex items-center justify-between border-white/5 border-b bg-(--codex-bg)/80 px-8 py-4 backdrop-blur-sm">
         <Link
-          className="flex items-center gap-1.5 font-mono text-xs text-white/30 transition-colors hover:text-white/60"
+          className="flex items-center gap-1.5 font-mono text-white/30 text-xs transition-colors hover:text-white/60"
           to="/"
         >
           <ChevronLeft size={12} />
@@ -40,7 +37,7 @@ export function ProblemDetailPage() {
         </Link>
         {problem.url && (
           <a
-            className="flex items-center gap-1.5 rounded border border-white/10 px-3 py-1.5 font-mono text-xs text-white/40 transition-colors hover:border-white/20 hover:text-white/70"
+            className="flex items-center gap-1.5 rounded border border-white/10 px-3 py-1.5 font-mono text-white/40 text-xs transition-colors hover:border-white/20 hover:text-white/70"
             href={problem.url}
             rel="noopener noreferrer"
             target="_blank"
@@ -55,7 +52,7 @@ export function ProblemDetailPage() {
         <div className="flex flex-col gap-3">
           <div className="flex items-end gap-4">
             <span
-              className="font-bold font-mono tabular-nums text-7xl leading-none"
+              className="font-bold font-mono text-7xl tabular-nums leading-none"
               style={{ color: "var(--codex-amber)" }}
             >
               #{String(problem.number).padStart(3, "0")}
@@ -74,5 +71,5 @@ export function ProblemDetailPage() {
         <Approach />
       </div>
     </article>
-  )
+  );
 }
