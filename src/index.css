@@ -84,7 +84,16 @@
 }
 
 .dark {
-    --background: oklch(0.141 0.005 285.823);
+    /* Terminal Codex palette */
+    --codex-amber: oklch(0.78 0.16 75);
+    --codex-amber-dim: oklch(0.55 0.12 75);
+    --codex-cyan: oklch(0.82 0.14 195);
+    --codex-cyan-dim: oklch(0.55 0.10 195);
+    --codex-bg: oklch(0.10 0.008 60);
+    --codex-bg-elevated: oklch(0.13 0.008 60);
+    --codex-bg-highlight: oklch(0.16 0.008 60);
+
+    --background: oklch(0.10 0.008 60);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.21 0.006 285.885);
     --card-foreground: oklch(0.985 0 0);
@@ -130,4 +139,13 @@
   html {
     @apply font-mono;
     }
+}
+
+@layer components {
+  .input-base {
+    @apply w-full rounded border border-white/10 bg-black/20 px-3 py-2 font-mono text-sm text-white/70 placeholder-white/20 outline-none transition-colors focus:border-[var(--codex-cyan,#67e8f9)]/30 focus:text-white/90;
+  }
+  .input-base option {
+    @apply bg-[#1a1b2e] text-white/80;
+  }
 }
